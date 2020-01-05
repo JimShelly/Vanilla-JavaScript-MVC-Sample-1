@@ -2,7 +2,7 @@ function controller(model) {
   var self = this;
   this.model = model;
 
-
+  //EventListener Interface
   this.handleEvent = function(e) {
     e.stopPropogation();
     switch(e.type){
@@ -14,12 +14,14 @@ function controller(model) {
     }
   }
 
+  //Get Model Heading
   this.getModelHeading = function() {
     return self.model.heading;
   }
 
+  //Change the model
   this.clickHandler = function(target) {
     self.model.heading = 'World';
-    target.innerText = self.getModelHeading();
+    self.model.notifyAll();
   }
 }
