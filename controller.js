@@ -16,12 +16,13 @@ function controller(model) {
 
   //Get Model Heading
   this.getModelHeading = function() {
+    console.log(self.model.heading);
     return self.model.heading;
   }
 
   //Change the model
   this.clickHandler = function(target) {
-    self.model.heading = 'World';
+    self.model.heading = this.getModelHeading;
     self.model.notifyAll();
   }
 }

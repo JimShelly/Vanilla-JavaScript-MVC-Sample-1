@@ -1,7 +1,8 @@
 function Model() {
   var self = this;
+  var state = new state();
   //heading is no longer a property, but a scoped variable
-  var heading = 'Hello';
+  var heading = state.getValue();
 
   //collection of observers
   this.observers = [];
@@ -18,6 +19,12 @@ function Model() {
     })
   }
 
+  //add changeHeading method to toggle state;
+  this.changeHeading = function(){
+    console.log('Change Heading');
+    state.changeState();
+    self.heading = state.getValue();
+  }
   //Pass this, as its the object we want to affect.  Heading is the name of the property we want it to be attached to.  Then we defined the accessor and assignment functions
   Object.defineProperty(this, 'heading', {
     get: function() { return heading },
