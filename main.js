@@ -1,6 +1,5 @@
 function HeadingState() {  
   var self = this;
-  console.log(this)
   this.state = new HelloState(self);
   this.changeState = function() {
     self.state.next();
