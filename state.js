@@ -1,7 +1,8 @@
-function HeadingState() {  
+//Our main State Container
+export function HeadingState() {  
   var self = this;
-  console.log(this)
-  this.state = new HelloState(self);
+  this.state = new HelloState(self); //instantiate a new HelloState object
+  
   this.changeState = function() {
     self.state.next();
   }
@@ -10,7 +11,7 @@ function HeadingState() {
   }
 }
 
-function HelloState(container){
+export function HelloState(container){
   var self = this;
   this.container = container;
   this.value = 'Hello';
@@ -20,7 +21,7 @@ function HelloState(container){
   }
 }
 
-function WorldState(container){
+export function WorldState(container){
   var self = this;
   this.container = container;
   this.value = 'World';
